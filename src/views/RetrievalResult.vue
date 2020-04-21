@@ -47,27 +47,12 @@
             </el-table-column>
         </el-table>
 
-        <el-pagination
-                background
-                layout="prev, pager, next"
-                :page-size= "pageSize"
-                :total= "total"
-                @current-change="page">
-        </el-pagination>
     </div>
 </template>
 
 <script>
     export default {
-        methods: {
-            page(currentPage){
-                const _this = this
-                axios.get('http://localhost:8181/book/findAll/'+(currentPage)+'/10').then(function(resp){
-                    _this.tableData = resp.data.list
-                    _this.pageSize = resp.data.pageSize
-                    _this.total = resp.data.total
-                })
-            },
+        methods:{
             show(row){
                 this.$msgbox({
                     title: row.name,
@@ -109,11 +94,8 @@
                 })
             }
         },
-
-        data() {
+        data(){
             return {
-                pageSize:0,
-                total:0,
                 tableData: [],
                 borrowRequest:{
                     book_id:'',
@@ -122,12 +104,11 @@
             }
         },
         created() {
-            const _this = this
-            axios.get('http://localhost:8181/book/findAll/0/10').then(function(resp){
-                _this.tableData = resp.data.list
-                _this.pageSize = resp.data.pageSize
-                _this.total = resp.data.total
-            })
+            this.tableData = this.$route.query.tableData
         }
     }
 </script>
+
+<style scoped>
+
+</style>

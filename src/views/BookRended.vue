@@ -45,7 +45,10 @@
                 axios.get('http://localhost:8181/lendlist/returnBook/' + (row.lend_id)).then(function (resp) {
                     if (resp.data == 'success'){
                         _this.$alert('还书成功','提示',{
-                            confirmButtonText: '确定'
+                            confirmButtonText: '确定',
+                            callback: action => {
+                                window.location.reload()
+                            }
                         })
                     }
                 })

@@ -19,9 +19,9 @@
                     <el-input v-model="ruleForm.user_name"></el-input>
                 </el-form-item>
 
-                <!--<el-form-item label="最大可借数量" prop="max_lend_number" v-if="this.$cookies.get('user').is_admin == 1">-->
-                    <!--<el-input-number v-model="ruleForm.max_lend_number" :min="0" :max="100" label="最大可借数量"></el-input-number>-->
-                <!--</el-form-item>-->
+                <el-form-item label="最大可借数量" prop="max_lend_number" v-if="this.$cookies.get('user').is_admin == 1">
+                    <el-input-number v-model="ruleForm.max_lend_number" :min="0" :max="100" label="最大可借数量"></el-input-number>
+                </el-form-item>
 
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -42,8 +42,8 @@
                     account_name: '',
                     password: '',
                     is_admin: false,
-                    user_name: ''
-                    // max_lend_number:0
+                    user_name: '',
+                    max_lend_number:0
                 },
                 rules: {
                     account_name: [
@@ -65,9 +65,6 @@
                     if (valid) {
                         axios.put('http://localhost:8181/account/update',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
-                                axios.get('http://localhost:8181/account/findById/' + _this.ruleForm.account_id).then(function (resp2) {
-                                    _this.$cookies.set("user",resp2.data, 60 * 60)
-                                })
                                 _this.$alert(_this.ruleForm.account_name+' 修改成功！', '消息', {
                                     confirmButtonText: '确定',
                                     callback: action => {

@@ -14,6 +14,8 @@ import BookSearch from "../views/BookSearch";
 import LendListManage from "../views/LendListManage";
 import BookRecord from "../views/BookRecord";
 import BookRended from "../views/BookRended";
+import BookRetrieral from "../views/BookRetrieral";
+import RetrievalResult from "../views/RetrievalResult";
 
 Vue.use(VueRouter)
 
@@ -105,6 +107,12 @@ const routes = [
         usershow:true
       },
       {
+        path:"/BookRetrieral",
+        name:"图书检索",
+        usershow:true,
+        component:BookRetrieral
+      },
+      {
         path:'/BookRended',
         name:'已借图书',
         component:BookRended,
@@ -119,6 +127,11 @@ const routes = [
       {
         path:'/AccountUpdateForUser',
         component:AccountUpdate,
+        usershow:false
+      },
+      {
+        path:'/RetrievalResult',
+        component:RetrievalResult,
         usershow:false
       }
     ]
