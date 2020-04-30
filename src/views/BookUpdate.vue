@@ -103,7 +103,7 @@
                 const _this = this
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.put('http://localhost:8181/book/update',this.ruleForm).then(function(resp){
+                        axios.put('http://' + (this.IPaddress) + ':8181/book/update',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
                                 _this.$alert('《'+_this.ruleForm.name+'》修改成功！', '消息', {
                                     confirmButtonText: '确定',
@@ -120,7 +120,7 @@
             },
             resetForm(formName) {
                 const _this = this
-                axios.get('http://localhost:8181/book/findById/'+this.ruleForm.book_id).then(function(resp){
+                axios.get('http://' + (this.IPaddress) + ':8181/book/findById/'+this.ruleForm.book_id).then(function(resp){
                     _this.ruleForm = resp.data
                 })
             },
@@ -130,10 +130,10 @@
         },
         created() {
             const _this = this
-            axios.get('http://localhost:8181/book/findById/'+this.$route.query.book_id).then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/book/findById/'+this.$route.query.book_id).then(function(resp){
                 _this.ruleForm = resp.data
             })
-            axios.get('http://localhost:8181/category/findAll').then(function (resp) {
+            axios.get('http://' + (this.IPaddress) + ':8181/category/findAll').then(function (resp) {
                 console.log(resp)
                 _this.category = resp.data
             })

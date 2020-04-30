@@ -92,7 +92,7 @@
         },
         created(){
             const _this = this
-            axios.get('http://localhost:8181/category/findAll').then(function (resp) {
+            axios.get('http://' + (this.IPaddress) + ':8181/category/findAll').then(function (resp) {
                 console.log(resp)
                 _this.category = resp.data
             })
@@ -103,7 +103,7 @@
                 const _this = this
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.post('http://localhost:8181/book/save',this.ruleForm).then(function(resp){
+                        axios.post('http://' + (this.IPaddress) + ':8181/book/save',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
                                 _this.$alert('《'+_this.ruleForm.name+'》添加成功！', '消息', {
                                     confirmButtonText: '确定',

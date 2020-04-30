@@ -103,7 +103,7 @@
         created() {
             const _this = this
             this.user_search = this.$route.query.user_name
-            axios.get('http://localhost:8181/lendlist/findAll').then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/lendlist/findAll').then(function(resp){
                 console.log(resp)
                 _this.tableData = resp.data
             })

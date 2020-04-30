@@ -62,7 +62,7 @@
         methods: {
             page(currentPage){
                 const _this = this
-                axios.get('http://localhost:8181/book/findAll/'+(currentPage)+'/10').then(function(resp){
+                axios.get('http://' + (this.IPaddress) + ':8181/book/findAll/'+(currentPage)+'/10').then(function(resp){
                     _this.tableData = resp.data.list
                     _this.pageSize = resp.data.pageSize
                     _this.total = resp.data.total
@@ -81,7 +81,7 @@
                 this.borrowRequest.account_id = this.$cookies.get("user").account_id
 
                 console.log(this.borrowRequest)
-                axios.post('http://localhost:8181/lendlist/borrow',this.borrowRequest).then(function (resp) {
+                axios.post('http://' + (this.IPaddress) + ':8181/lendlist/borrow',this.borrowRequest).then(function (resp) {
                     console.log(resp)
                     if (resp.data == 'success') {
                         _this.$alert('借书成功', '提示', {
@@ -123,7 +123,7 @@
         },
         created() {
             const _this = this
-            axios.get('http://localhost:8181/book/findAll/0/10').then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/book/findAll/0/10').then(function(resp){
                 _this.tableData = resp.data.list
                 _this.pageSize = resp.data.pageSize
                 _this.total = resp.data.total

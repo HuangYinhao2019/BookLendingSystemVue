@@ -72,7 +72,7 @@
                             this.ruleForm.is_admin = 0;
                         }
                         this.ruleForm.left_lend_number = this.ruleForm.max_lend_number
-                        axios.post('http://localhost:8181/account/save',this.ruleForm).then(function(resp){
+                        axios.post('http://' + (this.IPaddress) + ':8181/account/save',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
                                 _this.$alert(_this.ruleForm.account_name+' 添加成功！', '消息', {
                                     confirmButtonText: '确定',

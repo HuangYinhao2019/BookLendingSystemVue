@@ -66,7 +66,7 @@
             },
             page(currentPage){
                 const _this = this
-                axios.get('http://localhost:8181/account/findAll/'+(currentPage)+'/10').then(function(resp){
+                axios.get('http://' + (this.IPaddress) + ':8181/account/findAll/'+(currentPage)+'/10').then(function(resp){
                     console.log(resp)
                     _this.tableData = resp.data.list
                     _this.pageSize = resp.data.pageSize
@@ -93,7 +93,7 @@
 
         created() {
             const _this = this
-            axios.get('http://localhost:8181/account/findAll/0/10').then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/account/findAll/0/10').then(function(resp){
                 console.log(resp)
                 _this.tableData = resp.data.list
                 var i;

@@ -54,7 +54,7 @@
         },
         created(){
             const _this = this
-            axios.get('http://localhost:8181/book/findAll').then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/book/findAll').then(function(resp){
                 console.log(resp)
                 _this.books = resp.data
             })

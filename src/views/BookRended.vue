@@ -42,7 +42,7 @@
         methods: {
             returnbook(row){
                 const _this = this
-                axios.get('http://localhost:8181/lendlist/returnBook/' + (row.lend_id)).then(function (resp) {
+                axios.get('http://' + (this.IPaddress) + ':8181/lendlist/returnBook/' + (row.lend_id)).then(function (resp) {
                     if (resp.data == 'success'){
                         _this.$alert('还书成功','提示',{
                             confirmButtonText: '确定',
@@ -65,7 +65,7 @@
         created() {
             const _this = this
             var aid = this.$cookies.get("user").account_id
-            axios.get('http://localhost:8181/lendlist/findByAccountIdRended/'+(aid)).then(function(resp){
+            axios.get('http://' + (this.IPaddress) + ':8181/lendlist/findByAccountIdRended/'+(aid)).then(function(resp){
                 console.log(resp)
                 _this.tableData = resp.data
             })
