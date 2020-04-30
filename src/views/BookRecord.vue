@@ -46,7 +46,7 @@
         created() {
             const _this = this
             var aid = this.$cookies.get("user").account_id
-            axios.get('http://' + (this.IPaddress) + ':8181/lendlist/findByAccountIdHistory/'+(aid)).then(function(resp){
+            axios.get('http://' + (IPaddress) + ':8181/lendlist/findByAccountIdHistory/'+(aid)).then(function(resp){
                 console.log(resp)
                 _this.tableData = resp.data
             })

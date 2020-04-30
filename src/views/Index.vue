@@ -52,9 +52,9 @@
                 this.$cookies.remove("user")
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.post('http://' + (this.IPaddress) + ':8181/account/submit',this.ruleForm).then(function(resp){
+                        axios.post('http://' + (IPaddress) + ':8181/account/submit',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
-                                axios.get('http://' + (this.IPaddress) + ':8181/account/findByName/'+(_this.ruleForm.account_name)).then(function (resp2){
+                                axios.get('http://' + (IPaddress) + ':8181/account/findByName/'+(_this.ruleForm.account_name)).then(function (resp2){
                                     if (resp2.data.is_admin == 1){
                                         _this.$cookies.set("user",resp2.data, 60 * 60)
                                         _this.$router.push('/admin')

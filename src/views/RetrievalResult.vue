@@ -66,7 +66,7 @@
                 this.borrowRequest.account_id = this.$cookies.get("user").account_id
 
                 console.log(this.borrowRequest)
-                axios.post('http://' + (this.IPaddress) + ':8181/lendlist/borrow',this.borrowRequest).then(function (resp) {
+                axios.post('http://' + (IPaddress) + ':8181/lendlist/borrow',this.borrowRequest).then(function (resp) {
                     console.log(resp)
                     if (resp.data == 'success') {
                         _this.$alert('借书成功', '提示', {

@@ -5,8 +5,6 @@ import router from './router'
 import store from './store'
 import './plugins/element.js'
 import VueCookies from 'vue-cookies'
-import Global from './components/Global'
-Vue.prototype.IPaddress = Global;
 
 Vue.use(VueCookies)
 Vue.config.productionTip = false;

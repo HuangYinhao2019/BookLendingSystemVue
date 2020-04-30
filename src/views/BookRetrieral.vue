@@ -60,7 +60,7 @@
         },
         created(){
             const _this = this
-            axios.get('http://' + (this.IPaddress) + ':8181/category/findAll').then(function (resp) {
+            axios.get('http://' + (IPaddress) + ':8181/category/findAll').then(function (resp) {
                 _this.category = resp.data
             })
         },
@@ -68,7 +68,7 @@
         methods: {
             Retrieval(){
                 const _this = this
-                axios.post('http://' + (this.IPaddress) + ':8181/book/retrieval',this.ruleForm).then(function (resp) {
+                axios.post('http://' + (IPaddress) + ':8181/book/retrieval',this.ruleForm).then(function (resp) {
                     console.log(resp)
                     _this.$router.push({
                         path:"/RetrievalResult",

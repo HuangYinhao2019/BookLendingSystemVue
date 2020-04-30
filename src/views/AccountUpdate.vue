@@ -63,7 +63,7 @@
                 const _this = this
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.put('http://' + (this.IPaddress) + ':8181/account/update',this.ruleForm).then(function(resp){
+                        axios.put('http://' + (IPaddress) + ':8181/account/update',this.ruleForm).then(function(resp){
                             if(resp.data == 'success'){
                                 _this.$alert(_this.ruleForm.account_name+' 修改成功！', '消息', {
                                     confirmButtonText: '确定',
@@ -102,7 +102,7 @@
             else {
                 path = this.$cookies.get("user").account_id
             }
-            axios.get('http://' + (this.IPaddress) + ':8181/account/findById/'+ path).then(function(resp){
+            axios.get('http://' + (IPaddress) + ':8181/account/findById/'+ path).then(function(resp){
                 _this.ruleForm = resp.data
             })
         }

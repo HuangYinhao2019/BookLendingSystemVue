@@ -88,7 +88,7 @@
             retrieval(){
                 const _this = this
                 console.log(this.searchForm)
-                axios.post('http://' + (this.IPaddress) + ':8181/lendlist/retrieval',this.searchForm).then(function(resp){
+                axios.post('http://' + (IPaddress) + ':8181/lendlist/retrieval',this.searchForm).then(function(resp){
                     console.log(resp)
                     _this.tableData = resp.data
                 })
@@ -115,7 +115,7 @@
             if (this.searchForm.user_name != null){
                 this.retrieval()
             }
-            // axios.get('http://' + (this.IPaddress) + ':8181/lendlist/findAll').then(function(resp){
+            // axios.get('http://' + (IPaddress) + ':8181/lendlist/findAll').then(function(resp){
             //     console.log(resp)
             //     _this.tableData = resp.data
             // })

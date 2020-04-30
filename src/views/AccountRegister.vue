@@ -59,7 +59,7 @@
                 const _this = this
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.post('http://' + (this.IPaddress) + ':8181/account/register',this.ruleForm).then(function (resp) {
+                        axios.post('http://' + (IPaddress) + ':8181/account/register',this.ruleForm).then(function (resp) {
                             console.log(resp)
                             if (resp.data == 'success') {
                                 _this.$alert('注册成功！', '消息', {
